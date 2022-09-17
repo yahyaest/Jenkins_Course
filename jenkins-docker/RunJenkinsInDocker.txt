@@ -1,0 +1,24 @@
+docker run ^
+  -u root ^
+  --rm ^
+  -d ^
+  -p 8089:8089 ^
+  -p 50000:50000 ^
+  -v "D:/Programs/Jenkins_Docker:/var/jenkins_home" ^
+  -v /var/run/docker.sock:/var/run/docker.sock ^
+  --name jenkins ^
+  jenkinsci/blueocean
+
+ 
+
+docker run -u root --rm -d -p 8089:8080 -p 50000:50000 -v "D:/Programs/Jenkins_Docker:/var/jenkins_home" -v /var/run/docker.sock:/var/run/docker.sock --name jenkins jenkinsci/blueocean
+
+
+
+
+############# SonarCube ???
+
+# Execute:
+sudo sysctl -w vm.max_map_count=262144
+# Execute:
+sudo echo 'vm.max_map_count=262144' >> /etc/sysctl.conf
