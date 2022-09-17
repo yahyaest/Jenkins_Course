@@ -3,14 +3,13 @@ services:
   jenkins:
     image: jenkins/jenkins:lts
     ports:
-      - "8090:8090"
+      - "8080:8080"
       - "50000:50000"
     networks:
       - jenkins
     volumes:
-      - "D:/Programs/Jenkins_Docker:/var/jenkins_home"
+      - /home/yahya/Projects/Docker_Volumes/Jenkins_Docker:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
-    user: root
   postgres:
     image: postgres:9.6
     networks:
@@ -19,7 +18,7 @@ services:
       POSTGRES_USER: sonar
       POSTGRES_PASSWORD: sonarpasswd
     volumes:
-      - "D:/Programs/Docker_Volumes/postgresql:/var/lib/postgresql/data"
+      - /home/yahya/Projects/Docker_Volumes/postgresql:/var/lib/postgresql/data
   sonarqube:
     image: sonarqube:lts
     ports:
